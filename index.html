@@ -1,11 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="utf-8"><title>Visualisations UMAP</title></head>
+<head>
+  <meta charset="utf-8" />
+  <title>Interactive UMAP Visualizations</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root { --accent: #5c6ac4; }
+    * { box-sizing: border-box; font-family: "Inter", sans-serif; }
+    body {
+      margin: 0;
+      padding: 2rem;
+      background: #f6f8fa;
+      color: #24292f;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--accent);
+      text-align: center;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      width: 100%;
+      max-width: 800px;
+    }
+    a.card {
+      display: block;
+      text-decoration: none;
+      border: 1px solid #e1e4e8;
+      border-radius: 12px;
+      padding: 1.5rem;
+      background: #ffffff;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    a.card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+    }
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 0 0 0.5rem;
+      color: #24292f;
+    }
+    .card-desc {
+      font-size: 0.9rem;
+      line-height: 1.4;
+      color: #586069;
+      margin: 0;
+    }
+    footer {
+      margin-top: auto;
+      padding-top: 2rem;
+      font-size: 0.8rem;
+      color: #586069;
+      text-align: center;
+    }
+  </style>
+</head>
 <body>
-<h1>Visualisations interactives</h1>
-<ul>
-  <li><a href="docs/sup60_clustRep_n10_dist0.5.html">UMAP global</a></li>
-  <li><a href="docs/potato_n10_mindist_0.001.html">UMAP central</a></li>
-</ul>
+  <h1>Interactive UMAP Visualizations</h1>
+
+  <ul>
+    <li>
+      <a class="card" href="docs/sup60_clustRep_n10_dist0.5.html">
+        <p class="card-title">UMAP Global</p>
+        <p class="card-desc">Projection of the full protein space across 60 clusters.</p>
+      </a>
+    </li>
+    <li>
+      <a class="card" href="docs/potato_n10_mindist_0.001.html">
+        <p class="card-title">UMAP Central</p>
+        <p class="card-desc">Zoom on the central manifold (min&nbsp;dist 0.001, n&nbsp;= 10 neighbours).</p>
+      </a>
+    </li>
+  </ul>
+
+  <footer>
+    Made with Plotly &amp; RAPIDS cuML
+  </footer>
 </body>
 </html>
+
