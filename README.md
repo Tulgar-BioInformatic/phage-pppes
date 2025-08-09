@@ -9,7 +9,6 @@ Les **UMAPs interactifs** sont consultables ici :
 
 | Outil | Version | Paramètres principaux | Fonction |
 |-------|---------|-----------------------|----------|
-| [singularity](https://github.com/apptainer/singularity) | 4.1.1 | `exec --bind` | Exécuter des outils via des containers/images |
 | [Prodigal](https://github.com/hyattpd/Prodigal) | 2.6.3 | `-p single` ou `-p meta` | Prédiction des gènes codants |
 | [MMseqs2](https://github.com/soedinglab/MMseqs2) | v15-6f452+ds-2 | `easy-search` | Recherche de similarité entre séquences (~BLAST) |
 | [UMAP-learn](https://umap-learn.readthedocs.io/) | 0.5.7 | `n_neighbors` / `min_dist` ajustés | Réduction de dimension pour la visualisation |
