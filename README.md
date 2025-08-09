@@ -15,7 +15,6 @@ Les **UMAPs interactifs** sont consultables ici :
 | [ProtT5-XL-UniRef50](https://github.com/agemagician/ProtTrans) | - | - | Vectorisation (embedding) de séquences protéiques |
 | [UMAP-learn](https://umap-learn.readthedocs.io/) | - | `n_neighbors`, `min_dist` ajustés | Réduction de dimension |
 | [cuML-UMAP](https://docs.rapids.ai/api/cuml/stable/) | - | `metric=cosine`, `brute_force_knn` | UMAP accéléré sur GPU |
-| [t-SNE](https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html) | - | - | Réduction de dimension (mentionné en perspective) |
 | [Python](https://www.python.org/) | - | - | Langage principal pour scripts et analyses |
 | [Conda](https://docs.conda.io/) | - | - | Gestion des environnements (`env_cpu.yml`, `env_gpu.yml`) |
 | GPU NVIDIA RTX 4070 | - | - | Accélération des calculs ProtT5 et UMAP cuML |
