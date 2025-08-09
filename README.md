@@ -7,19 +7,18 @@ Les **UMAPs interactifs** sont consultables ici :
 
 ## Table des principaux outils utilisés
 
-| Catégorie | Outil | Version | Paramètres / Remarques | Lien |
-|-----------|-------|---------|------------------------|------|
-| **Prédiction et recherche de gènes** | [Getorf](http://emboss.sourceforge.net/apps/release/6.6/emboss/apps/getorf.html) (suite EMBOSS) | - | Détection des ORFs à partir de codons start/stop | [Site officiel](http://emboss.sourceforge.net/) |
-| | [Prodigal](https://github.com/hyattpd/Prodigal) | 2.6.3 | `-p single` ou `-p meta` | [GitHub](https://github.com/hyattpd/Prodigal) |
-| | [MMseqs2](https://github.com/soedinglab/MMseqs2) | - | `easy-search`, `easy-cluster` | [GitHub](https://github.com/soedinglab/MMseqs2) |
-| **Modèles de langage et embeddings** | [ProtT5-XL-UniRef50](https://github.com/agemagician/ProtTrans) | - | Modèle de langage protéique pour vectorisation des séquences | [GitHub](https://github.com/agemagician/ProtTrans) |
-| **Réduction de dimension et clustering** | [UMAP-learn](https://umap-learn.readthedocs.io/) | - | `n_neighbors` / `min_dist` ajustés selon la vue | [Documentation](https://umap-learn.readthedocs.io/) |
-| | [cuML-UMAP](https://docs.rapids.ai/api/cuml/stable/) | - | Implémentation GPU de UMAP, `metric=cosine`, `brute_force_knn` | [RAPIDS cuML](https://docs.rapids.ai/api/cuml/stable/) |
-| | [t-SNE](https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html) | - | Mentionné en perspective | [scikit-learn](https://scikit-learn.org/stable/) |
-| | [MMseqs2](https://github.com/soedinglab/MMseqs2) | - | Utilisé aussi pour clustering et recherche | [GitHub](https://github.com/soedinglab/MMseqs2) |
-| **Outils et langages généraux** | [Python](https://www.python.org/) | - | Langage principal pour scripts et analyses | [Site officiel](https://www.python.org/) |
-| | [Conda](https://docs.conda.io/) | - | Gestion des environnements (`env_cpu.yml`, `env_gpu.yml`) | [Documentation](https://docs.conda.io/) |
-| | GPU NVIDIA RTX 4070 | - | Accélération pour ProtT5 & UMAP cuML | [Fiche technique](https://www.nvidia.com/) |
+| OUTIL | VERSION | PARAMÈTRES | FONCTION |
+|-------|---------|------------|----------|
+| [Getorf](http://emboss.sourceforge.net/apps/release/6.6/emboss/apps/getorf.html) (suite EMBOSS) | - | - | Détection des ORFs à partir de codons start/stop |
+| [Prodigal](https://github.com/hyattpd/Prodigal) | 2.6.3 | `-p single` ou `-p meta` | Prédiction des gènes codants |
+| [MMseqs2](https://github.com/soedinglab/MMseqs2) | - | `easy-search`, `easy-cluster` | Recherche de similarité et clustering de séquences |
+| [ProtT5-XL-UniRef50](https://github.com/agemagician/ProtTrans) | - | - | Vectorisation (embedding) de séquences protéiques |
+| [UMAP-learn](https://umap-learn.readthedocs.io/) | - | `n_neighbors`, `min_dist` ajustés | Réduction de dimension |
+| [cuML-UMAP](https://docs.rapids.ai/api/cuml/stable/) | - | `metric=cosine`, `brute_force_knn` | UMAP accéléré sur GPU |
+| [t-SNE](https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html) | - | - | Réduction de dimension (mentionné en perspective) |
+| [Python](https://www.python.org/) | - | - | Langage principal pour scripts et analyses |
+| [Conda](https://docs.conda.io/) | - | - | Gestion des environnements (`env_cpu.yml`, `env_gpu.yml`) |
+| GPU NVIDIA RTX 4070 | - | - | Accélération des calculs ProtT5 et UMAP cuML |
 
 ## Structure du dépôt
 
