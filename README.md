@@ -3,7 +3,7 @@
 Ce projet explore l’utilisation de **modèles de langage protéiques** (ProtT5) couplés à une **projection UMAP** pour discriminer les protéines codantes des séquences non codantes dans les génomes de **Microviridae**.
 
 Les **UMAPs interactifs** sont consultables ici :  
-🔗 **[Visualisations interactives](https://tulgar-bioinformatic.github.io/phage-pppes/)**
+ **[Visualisations interactives](https://tulgar-bioinformatic.github.io/phage-pppes/)**
 
 ## Outils utilisés
 
