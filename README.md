@@ -17,10 +17,10 @@ Chaque entrée inclut la version (si connue), les paramètres principaux employ�
 | [Prodigal](https://github.com/hyattpd/Prodigal) | 2.6.3 | `-p single` (génomes entiers) / `-p meta` (contigs courts) | Prédiction des gènes codants |
 | [MMseqs2](https://github.com/soedinglab/MMseqs2) | 16.747c6 | `easy-search`, `easy-cluster`, `--min-seq-id 0.95 -c 0.95` (retrait redondances) | Recherche de similarité et clustering de séquences |
 | [RNAcode](https://github.com/s-will/RNAcode) | - | Alignements multiples + détection sélection négative | Détection de régions codantes par analyse évolutive |
-| [ProtT5-XL-UniRef50](https://github.com/agemagician/ProtTrans) | - | - | Vectorisation (embedding) de séquences protéiques |
-| [UMAP](https://umap-learn.readthedocs.io/) | - | `n_neighbors`, `min_dist` ajustés selon vue globale/locale | Réduction de dimension |
+| [ProtT5-XL-UniRef50](https://github.com/agemagician/ProtTrans) |  | - | Vectorisation (embedding) de séquences protéiques, modèle : Rostlab/prot_t5_xl_half_uniref50-enc |
+| [UMAP](https://umap-learn.readthedocs.io/) | 0.5.7 | `n_neighbors`, `min_dist` ajustés selon vue globale/locale | Réduction de dimension |
 | [cuML-UMAP](https://docs.rapids.ai/api/cuml/stable/) | 25.04 | `metric=cosine`, `brute_force_knn`, `n_epochs=5000` | UMAP accéléré sur GPU |
-| [DNAViewer](https://dnacanvas.com/) | - | - | Visualisation de cartes génomiques |
+| [DNAViewer](https://dnacanvas.com/) | 3.1.5 | - | Visualisation de cartes génomiques |
 | [Plotly](https://plotly.com/python/) | 6.1.2 | - | Visualisation interactive des résultats |
 | [Python](https://www.python.org/) | 3.10.16 | - | Langage principal pour scripts et analyses |
 | [Conda](https://docs.conda.io/) | 25.5.0 | - | Gestion des environnements (`env_cpu.yml`, `env_gpu.yml`) |
