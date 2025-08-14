@@ -13,11 +13,11 @@ Chaque entrée inclut la version (si connue), les paramètres principaux employ�
 | OUTIL | VERSION | PARAMÈTRES | FONCTION |
 |-------|---------|------------|----------|
 | [MEGAHIT](https://github.com/voutcn/megahit) | 1.2.9 | `--presets meta-large` | Assemblage de génomes à partir de métagénomes |
-| [Getorf](http://emboss.sourceforge.net/apps/release/6.6/emboss/apps/getorf.html) (suite EMBOSS) | EMBOSS:6.6.0.0 | Codons start alternatifs, circulaire, taille min 25 aa | Détection des ORFs à partir de codons start/stop |
+| [Getorf](http://emboss.sourceforge.net/apps/release/6.6/emboss/apps/getorf.html) (suite EMBOSS) | 6.6.0.0 | Codons start alternatifs, circulaire, taille min 25 aa | Détection des ORFs à partir de codons start/stop |
 | [Prodigal](https://github.com/hyattpd/Prodigal) | 2.6.3 | `-p single` (génomes entiers) / `-p meta` (contigs courts) | Prédiction des gènes codants |
 | [MMseqs2](https://github.com/soedinglab/MMseqs2) | 16.747c6 | `easy-search`, `easy-cluster`, `--min-seq-id 0.95 -c 0.95` (retrait redondances) | Recherche de similarité et clustering de séquences |
 | [RNAcode](https://github.com/s-will/RNAcode) | - | Alignements multiples + détection sélection négative | Détection de régions codantes par analyse évolutive |
-| [ProtT5-XL-UniRef50](https://github.com/agemagician/ProtTrans) |  | - | Vectorisation (embedding) de séquences protéiques, modèle : Rostlab/prot_t5_xl_half_uniref50-enc |
+| [ProtT5-XL-UniRef50](https://github.com/agemagician/ProtTrans) | - | - | Vectorisation (embedding) de séquences protéiques, modèle : Rostlab/prot_t5_xl_half_uniref50-enc |
 | [UMAP](https://umap-learn.readthedocs.io/) | 0.5.7 | `n_neighbors`, `min_dist` ajustés selon vue globale/locale | Réduction de dimension |
 | [cuML-UMAP](https://docs.rapids.ai/api/cuml/stable/) | 25.04 | `metric=cosine`, `brute_force_knn`, `n_epochs=5000` | UMAP accéléré sur GPU |
 | [DNAViewer](https://dnacanvas.com/) | 3.1.5 | - | Visualisation de cartes génomiques |
