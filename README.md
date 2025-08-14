@@ -18,7 +18,7 @@ Chaque entrée inclut la version (si connue), les paramètres principaux employ�
 | [MMseqs2](https://github.com/soedinglab/MMseqs2) | - | `easy-search`, `easy-cluster`, `--min-seq-id 0.95 -c 0.95` (retrait redondances) | Recherche de similarité et clustering de séquences |
 | [RNAcode](https://github.com/s-will/RNAcode) | - | Alignements multiples + détection sélection négative | Détection de régions codantes par analyse évolutive |
 | [ProtT5-XL-UniRef50](https://github.com/agemagician/ProtTrans) | - | - | Vectorisation (embedding) de séquences protéiques |
-| [UMAP-learn](https://umap-learn.readthedocs.io/) | - | `n_neighbors`, `min_dist` ajustés selon vue globale/locale | Réduction de dimension |
+| [UMAP](https://umap-learn.readthedocs.io/) | - | `n_neighbors`, `min_dist` ajustés selon vue globale/locale | Réduction de dimension |
 | [cuML-UMAP](https://docs.rapids.ai/api/cuml/stable/) | 25.04 | `metric=cosine`, `brute_force_knn`, `n_epochs=5000` | UMAP accéléré sur GPU |
 | [DNAViewer](https://dnacanvas.com/) | - | - | Visualisation de cartes génomiques |
 | [Plotly](https://plotly.com/python/) | 6.1.2 | - | Visualisation interactive des résultats |
