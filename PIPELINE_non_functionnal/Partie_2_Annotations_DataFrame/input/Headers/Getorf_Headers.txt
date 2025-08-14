@@ -1,0 +1,43 @@
+A_GutCatV1_c1_1_GutGetoPosi [41 - 373]
+A_GutCatV1_c1_2_GutGetoPosi [428 - 598]
+A_GutCatV1_c1_3_GutGetoPosi [605 - 691]
+A_GutCatV1_c1_4_GutGetoPosi [663 - 761]
+A_GutCatV1_c1_5_GutGetoPosi [737 - 883]
+A_GutCatV1_c1_6_GutGetoPosi [893 - 1096]
+A_GutCatV1_c1_7_GutGetoPosi [1220 - 1531]
+A_GutCatV1_c1_8_GutGetoPosi [1 - 1740]
+A_GutCatV1_c1_9_GutGetoPosi [1691 - 1777]
+A_GutCatV1_c1_10_GutGetoPosi [1790 - 1951]
+A_GutCatV1_c1_11_GutGetoPosi [2021 - 2170]
+A_GutCatV1_c1_12_GutGetoPosi [2291 - 2446]
+A_GutCatV1_c1_13_GutGetoPosi [1756 - 2481]
+A_GutCatV1_c1_14_GutGetoPosi [2471 - 2725]
+A_GutCatV1_c1_15_GutGetoPosi [2601 - 2744]
+A_GutCatV1_c1_16_GutGetoPosi [2725 - 2832]
+A_GutCatV1_c1_17_GutGetoPosi [2933 - 3154]
+A_GutCatV1_c1_18_GutGetoPosi [3203 - 3430]
+A_GutCatV1_c1_19_GutGetoPosi [3533 - 3715]
+A_GutCatV1_c1_20_GutGetoPosi [2851 - 3786]
+A_GutCatV1_c1_21_GutGetoPosi [3719 - 3817]
+A_GutCatV1_c1_22_GutGetoPosi [3836 - 3991]
+A_GutCatV1_c1_23_GutGetoPosi [3820 - 4056]
+A_GutCatV1_c1_24_GutGetoPosi [4056 - 4133]
+A_GutCatV1_c1_25_GutGetoPosi [4143 - 4277]
+A_GutCatV1_c1_26_GutGetoPosi [4010 - 4315]
+A_GutCatV1_c1_27_GutGetoPosi [4284 - 4397]
+A_GutCatV1_c1_28_GutGetoPosi [4462 - 4542]
+A_GutCatV1_c1_29_GutGetoPosi [4627 - 4737]
+A_GutCatV1_c1_30_GutGetoPosi [4759 - 4839]
+A_GutCatV1_c1_31_GutGetoPosi [4425 - 4904]
+A_GutCatV1_c1_32_GutGetoPosi [4888 - 4965]
+A_GutCatV1_c1_33_GutGetoNega [4899 - 4750] (REVERSE SENSE)
+A_GutCatV1_c1_34_GutGetoNega [4957 - 4730] (REVERSE SENSE)
+A_GutCatV1_c1_35_GutGetoNega [4859 - 4701] (REVERSE SENSE)
+A_GutCatV1_c1_36_GutGetoNega [4656 - 4576] (REVERSE SENSE)
+A_GutCatV1_c1_37_GutGetoNega [4565 - 4341] (REVERSE SENSE)
+A_GutCatV1_c1_38_GutGetoNega [4341 - 4228] (REVERSE SENSE)
+A_GutCatV1_c1_39_GutGetoNega [3687 - 3157] (REVERSE SENSE)
+A_GutCatV1_c1_40_GutGetoNega [3135 - 2848] (REVERSE SENSE)
+A_GutCatV1_c1_41_GutGetoNega [2838 - 2743] (REVERSE SENSE)
+A_GutCatV1_c1_42_GutGetoNega [2804 - 2724] (REVERSE SENSE)
+A_GutCatV1_c1_43_GutGetoNega [2650 - 2567] (REVERSE SENSE)

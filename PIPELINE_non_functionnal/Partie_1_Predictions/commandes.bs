@@ -1,0 +1,163 @@
+#!/usr/bin/env bash
+# -------------------------------------------------------------------
+# commandes.bs
+# -------------------------------------------------------------------
+# But :
+# 1) Parcourir tous les génomes *.fna dans:
+#      Partie_1_Predictions/input/allGenomes/
+#    et prédire les ORFs avec :
+#      - EMBOSS getorf  → sorties .faa (acides aminés) et .fna (nucléotides)
+#      - Prodigal       → sorties .faa et .fna
+# 2) (Option) Regrouper ces sorties en “lots” (Gut / Tax / Ref) si besoin.
+# 3) Ajouter un suffixe au header FASTA indiquant :
+#       Source (Gut / Tax / Ref) + Outil (Geto / Prod) + Brin (Posi / Nega)
+#    Règles utilisées :
+#      - Prodigal : présence du motif `# -1 #` ⇒ brin négatif (Nega)
+#      - Getorf   : présence de “(REVERSE SENSE)” ⇒ brin négatif (Nega)
+# 4) Réécrire les FASTA de sortie sans retour à la ligne dans les séquences
+#    (seqkit seq -w 0) dans:  Partie_1_Predictions/out/
+#
+# Prérequis : getorf (EMBOSS), prodigal, seqkit, sed (GNU)
+# -------------------------------------------------------------------
+
+set -euo pipefail
+
+TMPDIR="Partie_1_Predictions/tmp"
+OUTDIR="Partie_1_Predictions/out"
+mkdir -p "$TMPDIR" "$OUTDIR"
+
+# -------------------------------------------------------------------
+# 1) Prédictions ORFs avec getorf & prodigal pour chaque génome
+# -------------------------------------------------------------------
+for fasta in Partie_1_Predictions/input/allGenomes/*.fna; do
+  base="$(basename "${fasta%.*}")"
+
+  # getorf – protéines (find 1)
+  getorf \
+    -sequence  "$fasta" \
+    -outseq    "$TMPDIR/getorf_${base}.faa" \
+    -table     1 \
+    -find      1 \
+    -reverse   true \
+    -circular  true \
+    -minsize   75
+
+  # getorf – nucléotides (find 3)
+  getorf \
+    -sequence  "$fasta" \
+    -outseq    "$TMPDIR/getorf_${base}.fna" \
+    -table     1 \
+    -find      3 \
+    -reverse   true \
+    -circular  true \
+    -minsize   75
+
+  # Prodigal (mode meta) – protéines & nucléotides
+  prodigal \
+    -i "$fasta" \
+    -a "$TMPDIR/prodigal_${base}.faa" \
+    -d "$TMPDIR/prodigal_${base}.fna" \
+    -p meta \
+    -q
+done
+
+# -------------------------------------------------------------------
+# 2) (Optionnel) Construire des lots Gut / Tax / Ref
+#    -> Adapte ici si tu as des listes de noms correspondant à chaque lot.
+#    Exemples (décommente et ajuste les motifs selon tes fichiers):
+# -------------------------------------------------------------------
+# cat $TMPDIR/prodigal_*Gut*.faa > $TMPDIR/prodigal_genomesGut.faa
+# cat $TMPDIR/prodigal_*Gut*.fna > $TMPDIR/prodigal_genomesGut.fna
+# cat $TMPDIR/getorf_*Gut*.faa   > $TMPDIR/getorf_genomesGut.faa
+# cat $TMPDIR/getorf_*Gut*.fna   > $TMPDIR/getorf_genomesGut.fna
+#
+# cat $TMPDIR/prodigal_*Tax*.faa > $TMPDIR/prodigal_genomesTax.faa
+# cat $TMPDIR/prodigal_*Tax*.fna > $TMPDIR/prodigal_genomesTax.fna
+# cat $TMPDIR/getorf_*Tax*.faa   > $TMPDIR/getorf_genomesTax.faa
+# cat $TMPDIR/getorf_*Tax*.fna   > $TMPDIR/getorf_genomesTax.fna
+#
+# cat $TMPDIR/prodigal_*Ref*.faa > $TMPDIR/prodigal_genomesRef.faa
+# cat $TMPDIR/prodigal_*Ref*.fna > $TMPDIR/prodigal_genomesRef.fna
+# cat $TMPDIR/getorf_*Ref*.faa   > $TMPDIR/getorf_genomesRef.faa
+# cat $TMPDIR/getorf_*Ref*.fna   > $TMPDIR/getorf_genomesRef.fna
+
+# -------------------------------------------------------------------
+# 3) Ajouter les suffixes Source+Outil+Brin
+#    - Pour Prodigal: motif `# -1 #`  -> _...Nega, sinon _...Posi
+#    - Pour Getorf  : motif `(REVERSE SENSE)` -> _...Nega, sinon _...Posi
+# -------------------------------------------------------------------
+
+## Lot Gut
+sed -E -i '/^>/{
+  /# -1 #/  s/^(>[^ ]+)/\1_GutProdNega/;
+  /# -1 #/! s/^(>[^ ]+)/\1_GutProdPosi/
+}' "$TMPDIR/prodigal_genomesGut.faa"
+sed -E -i '/^>/{
+  /# -1 #/  s/^(>[^ ]+)/\1_GutProdNega/;
+  /# -1 #/! s/^(>[^ ]+)/\1_GutProdPosi/
+}' "$TMPDIR/prodigal_genomesGut.fna"
+
+sed -E -i '/^>/{
+  /\(REVERSE SENSE\)/  s/^(>[^ ]+)/\1_GutGetoNega/;
+  /\(REVERSE SENSE\)/! s/^(>[^ ]+)/\1_GutGetoPosi/
+}' "$TMPDIR/getorf_genomesGut.faa"
+sed -E -i '/^>/{
+  /\(REVERSE SENSE\)/  s/^(>[^ ]+)/\1_GutGetoNega/;
+  /\(REVERSE SENSE\)/! s/^(>[^ ]+)/\1_GutGetoPosi/
+}' "$TMPDIR/getorf_genomesGut.fna"
+
+## Lot Tax
+sed -E -i '/^>/{
+  /# -1 #/  s/^(>[^ ]+)/\1_TaxProdNega/;
+  /# -1 #/! s/^(>[^ ]+)/\1_TaxProdPosi/
+}' "$TMPDIR/prodigal_genomesTax.faa"
+sed -E -i '/^>/{
+  /# -1 #/  s/^(>[^ ]+)/\1_TaxProdNega/;
+  /# -1 #/! s/^(>[^ ]+)/\1_TaxProdPosi/
+}' "$TMPDIR/prodigal_genomesTax.fna"
+
+sed -E -i '/^>/{
+  /\(REVERSE SENSE\)/  s/^(>[^ ]+)/\1_TaxGetoNega/;
+  /\(REVERSE SENSE\)/! s/^(>[^ ]+)/\1_TaxGetoPosi/
+}' "$TMPDIR/getorf_genomesTax.faa"
+sed -E -i '/^>/{
+  /\(REVERSE SENSE\)/  s/^(>[^ ]+)/\1_TaxGetoNega/;
+  /\(REVERSE SENSE\)/! s/^(>[^ ]+)/\1_TaxGetoPosi/
+}' "$TMPDIR/getorf_genomesTax.fna"
+
+## Lot Ref
+sed -E -i '/^>/{
+  /# -1 #/  s/^(>[^ ]+)/\1_RefProdNega/;
+  /# -1 #/! s/^(>[^ ]+)/\1_RefProdPosi/
+}' "$TMPDIR/prodigal_genomesRef.faa"
+sed -E -i '/^>/{
+  /# -1 #/  s/^(>[^ ]+)/\1_RefProdNega/;
+  /# -1 #/! s/^(>[^ ]+)/\1_RefProdPosi/
+}' "$TMPDIR/prodigal_genomesRef.fna"
+
+sed -E -i '/^>/{
+  /\(REVERSE SENSE\)/  s/^(>[^ ]+)/\1_RefGetoNega/;
+  /\(REVERSE SENSE\)/! s/^(>[^ ]+)/\1_RefGetoPosi/
+}' "$TMPDIR/getorf_genomesRef.faa"
+sed -E -i '/^>/{
+  /\(REVERSE SENSE\)/  s/^(>[^ ]+)/\1_RefGetoNega/;
+  /\(REVERSE SENSE\)/! s/^(>[^ ]+)/\1_RefGetoPosi/
+}' "$TMPDIR/getorf_genomesRef.fna"
+
+# -------------------------------------------------------------------
+# 4) Réécriture “wrap 0” dans le dossier out/
+# -------------------------------------------------------------------
+seqkit seq -w 0 "$TMPDIR/prodigal_genomesGut.faa"  > "$OUTDIR/prodigal_genomesGut.faa"
+seqkit seq -w 0 "$TMPDIR/prodigal_genomesGut.fna"  > "$OUTDIR/prodigal_genomesGut.fna"
+seqkit seq -w 0 "$TMPDIR/getorf_genomesGut.faa"    > "$OUTDIR/getorf_genomesGut.faa"
+seqkit seq -w 0 "$TMPDIR/getorf_genomesGut.fna"    > "$OUTDIR/getorf_genomesGut.fna"
+
+seqkit seq -w 0 "$TMPDIR/prodigal_genomesTax.faa"  > "$OUTDIR/prodigal_genomesTax.faa"
+seqkit seq -w 0 "$TMPDIR/prodigal_genomesTax.fna"  > "$OUTDIR/prodigal_genomesTax.fna"
+seqkit seq -w 0 "$TMPDIR/getorf_genomesTax.faa"    > "$OUTDIR/getorf_genomesTax.faa"
+seqkit seq -w 0 "$TMPDIR/getorf_genomesTax.fna"    > "$OUTDIR/getorf_genomesTax.fna"
+
+seqkit seq -w 0 "$TMPDIR/prodigal_genomesRef.faa"  > "$OUTDIR/prodigal_genomesRef.faa"
+seqkit seq -w 0 "$TMPDIR/prodigal_genomesRef.fna"  > "$OUTDIR/prodigal_genomesRef.fna"
+seqkit seq -w 0 "$TMPDIR/getorf_genomesRef.faa"    > "$OUTDIR/getorf_genomesRef.faa"
+seqkit seq -w 0 "$TMPDIR/getorf_genomesRef.fna"    > "$OUTDIR/getorf_genomesRef.fna"
