@@ -20,7 +20,6 @@ Chaque entrée inclut la version (si connue), les paramètres principaux employ�
 | [ProtT5-XL-UniRef50](https://github.com/agemagician/ProtTrans) | - | - | Vectorisation (embedding) de séquences protéiques |
 | [UMAP-learn](https://umap-learn.readthedocs.io/) | - | `n_neighbors`, `min_dist` ajustés selon vue globale/locale | Réduction de dimension |
 | [cuML-UMAP](https://docs.rapids.ai/api/cuml/stable/) | 25.04 | `metric=cosine`, `brute_force_knn`, `n_epochs=5000` | UMAP accéléré sur GPU |
-| [HMMER](http://hmmer.org/) | - | - | Détection de similarité faible via profils HMM (mentionné) |
 | [DNAViewer](https://dnacanvas.com/) | - | - | Visualisation de cartes génomiques |
 | [Plotly](https://plotly.com/python/) | 6.1.2 | - | Visualisation interactive des résultats |
 | [Python](https://www.python.org/) | - | - | Langage principal pour scripts et analyses |
