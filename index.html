@@ -8,65 +8,14 @@
   <style>
     :root { --accent: #5c6ac4; }
     * { box-sizing: border-box; font-family: "Inter", sans-serif; }
-    body {
-      margin: 0;
-      padding: 2rem;
-      background: #f6f8fa;
-      color: #24292f;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-    }
-    h1 {
-      font-size: 2.5rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      color: var(--accent);
-      text-align: center;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-      width: 100%;
-      max-width: 800px;
-    }
-    a.card {
-      display: block;
-      text-decoration: none;
-      border: 1px solid #e1e4e8;
-      border-radius: 12px;
-      padding: 1.5rem;
-      background: #ffffff;
-      transition: transform 0.15s, box-shadow 0.15s;
-    }
-    a.card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
-    }
-    .card-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin: 0 0 0.5rem;
-      color: #24292f;
-    }
-    .card-desc {
-      font-size: 0.9rem;
-      line-height: 1.4;
-      color: #586069;
-      margin: 0;
-    }
-    footer {
-      margin-top: auto;
-      padding-top: 2rem;
-      font-size: 0.8rem;
-      color: #586069;
-      text-align: center;
-    }
+    body { margin: 0; padding: 2rem; background: #f6f8fa; color: #24292f; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
+    h1 { font-size: 2.5rem; font-weight: 600; margin-bottom: 1rem; color: var(--accent); text-align: center; }
+    ul { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; width: 100%; max-width: 800px; }
+    a.card { display: block; text-decoration: none; border: 1px solid #e1e4e8; border-radius: 12px; padding: 1.5rem; background: #ffffff; transition: transform 0.15s, box-shadow 0.15s; }
+    a.card:hover { transform: translateY(-4px); box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06); }
+    .card-title { font-size: 1.25rem; font-weight: 600; margin: 0 0 0.5rem; color: #24292f; }
+    .card-desc { font-size: 0.9rem; line-height: 1.4; color: #586069; margin: 0; }
+    footer { margin-top: auto; padding-top: 2rem; font-size: 0.8rem; color: #586069; text-align: center; }
   </style>
 </head>
 <body>
@@ -82,13 +31,13 @@
     <li>
       <a class="card" href="docs/umap_central.html" target="_blank" rel="noopener noreferrer">
         <p class="card-title">UMAP Central (7Mo)</p>
-        <p class="card-desc">Prjection UMAP des 2 415 séquences dont la projection se situe dans l'îlot central de la première projection.</p>
+        <p class="card-desc">Projection UMAP des 2 415 séquences dont la projection se situe dans l'îlot central de la première projection.</p>
       </a>
     </li>
     <li>
       <a class="card" href="docs/newplot.html" target="_blank" rel="noopener noreferrer">
         <p class="card-title">UMAP général sur échantillon large (50Mo)</p>
-        <p class="card-desc">Prjection UMAP de 45 000 séquences provenant de 771 génomes répartis sur 289 clusters, les séquences de 5 génomes par cluster de taille supérieure ou égale à 2.</p>
+        <p class="card-desc">Projection UMAP de 45 000 séquences provenant de 771 génomes répartis sur 289 clusters, les séquences de 5 génomes par cluster de taille supérieure ou égale à 2.</p>
       </a>
     </li>
     <li>
@@ -104,4 +53,3 @@
   </footer>
 </body>
 </html>
-
